@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Reveal R* SCID (RID) on Social Club Profile Page
 // @namespace    Violentmonkey Scripts
-// @version      1.1.0
+// @version      1.1.1
 // @description  Adds SCID (RID) to the Social Club profile page, compatible with 2Take1 "Fake Friends" (name:SCID) feature, for easy copy and paste into the "Scid.cfg" file.
 // @author       IB_U_Z_Z_A_R_Dl
 // @match        *://socialclub.rockstargames.com/member/*
@@ -69,13 +69,13 @@
           element,
           `
             <p>
-              Social Club ID (RID/SSID):
+              Social Club ID (SCID/RID):
               <br>
               ${scId}
             </p>
             <hr>
             <p>
-              2Take1 "Fake Friends" (name:SSID to hex):
+              2Take1 "Fake Friends" (name:SCID to hex):
               <br>
               ${username}:${scHexId}
             </p>
