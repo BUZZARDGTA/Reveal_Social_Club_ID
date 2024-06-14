@@ -7,9 +7,9 @@ It is compatible with 2Take1 "Fake Friends" (name:SCID) feature, for easier copy
 
 ## Screenshot
 
-|                                                          Profile Page                                                          |
+|                                                    Social Club Profile Page                                                    |
 | :----------------------------------------------------------------------------------------------------------------------------: |
-| ![SC Profile Page](https://github.com/Illegal-Services/Reveal_Social_Club_ID/assets/62464560/45a919fc-421d-4dc6-af3d-30b1e9d24d24)
+| ![SC Profile Page](https://github.com/Illegal-Services/Reveal_Social_Club_ID/assets/62464560/05bb7ac7-b82e-4385-baab-a707266b3be4)
 
 ## Requirements
 
