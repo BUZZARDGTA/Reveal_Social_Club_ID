@@ -9,7 +9,7 @@ It is compatible with 2Take1 "Fake Friends" feature, for easier copy pasting int
 
 |                                                    Social Club Profile Page                                                    |
 | :----------------------------------------------------------------------------------------------------------------------------: |
-| ![SC Profile Page](https://github.com/Illegal-Services/Reveal_Social_Club_ID/assets/62464560/05bb7ac7-b82e-4385-baab-a707266b3be4)
+| ![Social Club Profile Page](https://github.com/Illegal-Services/Reveal_Social_Club_ID/assets/62464560/655d95be-13be-4921-9cc8-2145d0045029)
 
 ## Requirements
 
