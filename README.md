@@ -3,7 +3,7 @@
 ## Description
 
 This script adds the player Social Club/Rockstar ID (SCID/RID) to their Social Club profile page.<br>
-It is compatible with 2Take1 "Fake Friends" (name:SCID) feature, for easier copy pasting into the "Scid.cfg" file.
+It is compatible with 2Take1 "Fake Friends" feature, for easier copy pasting into the "scid.cfg" file.
 
 ## Screenshot
 
