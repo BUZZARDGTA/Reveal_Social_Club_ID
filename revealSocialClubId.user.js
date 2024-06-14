@@ -31,9 +31,9 @@
   const insertToProfile = (element, htmlContent) => {
     // file deepcode ignore DOMXSS: trust
     element.innerHTML +=
-    '<div style="text-align: center;">' +
-      htmlContent +
-    '</div>';
+      '<div style="text-align: center;">' +
+        htmlContent +
+      '</div>';
   };
 
   const fetchProfileData = (element, username) => {
