@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Reveal R* SCID (RID) on Social Club Profile Page
 // @namespace    Violentmonkey Scripts
-// @version      1.1.2
+// @version      1.1.3
 // @description  Adds SCID (RID) to the Social Club profile page, compatible with 2Take1 "Fake Friends" feature, for easy copy and paste into the "scid.cfg" file.
 // @author       IB_U_Z_Z_A_R_Dl
 // @match        *://socialclub.rockstargames.com/member/*
@@ -22,35 +22,34 @@
 
 
 (function () {
-  "use strict";
+  'use strict';
 
-  const COPY_TO_CLIPBOARD = true;
+  const AUTO_COPY_TO_CLIPBOARD = true;
   const TIMEOUT = 10000;
   const RETRY_INTERVAL = 1000;
 
   const insertToProfile = (element, htmlContent) => {
     // file deepcode ignore DOMXSS: trust
-    element.innerHTML += `
-      <span class="scid-info" style="margin-left:10px;">
-        ${htmlContent}
-      </span>
-    `;
+    element.innerHTML +=
+    '<div style="text-align: center;">' +
+      htmlContent +
+    '</div>';
   };
 
   const fetchProfileData = (element, username) => {
-    const BEARER_TOKEN = Cookies.get("BearerToken");
+    const BEARER_TOKEN = Cookies.get('BearerToken');
     if (!BEARER_TOKEN) {
-      console.error("Bearer token not found. Make sure you are logged in.");
+      console.error('Bearer token not found. Make sure you are logged in.');
       return;
     }
 
     fetch(
       `https://scapi.rockstargames.com/profile/getprofile?nickname=${username}&maxFriends=3`,
       {
-        method: "GET",
+        method: 'GET',
         headers: {
           Authorization: `Bearer ${BEARER_TOKEN}`,
-          "X-Requested-With": "XMLHttpRequest",
+          'X-Requested-With': 'XMLHttpRequest',
         },
       }
     )
@@ -67,27 +66,37 @@
         const scHexId = scId.toString(16);
         insertToProfile(
           element,
-          `
-            <p>
-              Social Club ID (SCID/RID):
-              <br>
-              ${scId}
-            </p>
-            <hr>
-            <p>
-              2Take1 "Fake Friends" (scid.cfg):
-              <br>
-              ${username}:${scHexId}
-            </p>
-          `
+          '<p style="margin-bottom: 0;">' +
+            '<span>' +
+              'Social Club ID (SCID/RID):' +
+            '</span>' +
+            '<br>' +
+            '<span style="font-family: monospace; user-select: all;">' +
+              scId +
+            '</span>' +
+          '</p>' +
+          '<hr>' +
+          '<p style="margin-bottom: 0;">' +
+            '<span>' +
+              '2Take1 "Fake Friends" (scid.cfg):' +
+            '</span>' +
+            '<br>' +
+            '<span style="font-family: monospace; user-select: all;">' +
+                `${username}:${scHexId}` +
+            '</span>' +
+          '</p>'
         );
-        if (COPY_TO_CLIPBOARD) {
-          GM_setClipboard(`${username}:${scHexId}`, "text");
+        if (AUTO_COPY_TO_CLIPBOARD) {
+          GM_setClipboard(`${username}:${scHexId}`, 'text');
         }
       })
       .catch((error) => {
         console.error(error);
-        insertToProfile(element, "<p>Failed to fetch Social Club ID.</p>");
+        insertToProfile(element,
+          '<p>' +
+            'Failed to fetch Social Club ID.' +
+          '</p>'
+        );
       });
   };
 
@@ -109,7 +118,7 @@
       );
     } else {
       console.error(
-        "Failed to find the profile header element after 10 seconds of retries."
+        'Failed to find the profile header element after 10 seconds of retries.'
       );
       return;
     }
@@ -120,7 +129,7 @@
       window.location.pathname
     );
     if (!match || match.length <= 0) {
-      console.error("No username found in the URL");
+      console.error('No username found in the URL');
       return;
     }
     const username = match[1];
